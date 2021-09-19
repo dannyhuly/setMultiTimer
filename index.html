@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Timer</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script>
+
+      function createSetSingleTimer() {
+        let timer;
+        window.setSingleTimer = function(callback, time) {
+          clearTimeout(timer);
+          timer = setTimeout(callback, time);
+        };
+      }
+      createSetSingleTimer();
+
+      window.print = function(txt) {
+        const newDiv = document.createElement("div");
+        newDiv.textContent = txt;
+        document.getElementById("app").appendChild(newDiv);
+      };
+
+      window.onload = function() {
+        setTimeout(() => {
+          window.pageLoaded();
+        }, 1000);
+      };
+
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>
+
